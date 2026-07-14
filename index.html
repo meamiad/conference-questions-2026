@@ -8,26 +8,23 @@
     content="width=device-width, initial-scale=1.0, viewport-fit=cover"
   >
 
-  <meta name="theme-color" content="#f8fbfd">
+  <meta name="theme-color" content="#f7fbfd">
 
-  <title>
-    שליחת שאלה | כנס רפואת הלהט"ב
-  </title>
+  <title>מטפלים בגאווה | שליחה</title>
 
   <style>
     :root {
       --navy: #20364f;
-      --navy-soft: #687d92;
+      --gray: #708397;
       --pink: #d92f87;
       --pink-light: #fff0f7;
       --blue: #39acd2;
-      --blue-dark: #198db8;
-      --purple: #8674d5;
-      --green: #4eb89a;
+      --blue-dark: #188db8;
+      --green: #50b89b;
+      --purple: #8b75d8;
       --yellow: #f4cb5e;
       --white: #ffffff;
-      --page: #f8fbfd;
-      --border: #dce6ef;
+      --border: #d8e4ed;
       --error: #c6295f;
     }
 
@@ -42,10 +39,6 @@
       margin: 0;
     }
 
-    html {
-      background: var(--page);
-    }
-
     body {
       min-height: 100vh;
       min-height: 100dvh;
@@ -53,21 +46,16 @@
       color: var(--navy);
       background:
         radial-gradient(
-          circle at 10% 5%,
-          rgba(57, 172, 210, 0.17),
-          transparent 34%
+          circle at 5% 10%,
+          rgba(57, 172, 210, 0.16),
+          transparent 32%
         ),
         radial-gradient(
-          circle at 95% 95%,
+          circle at 95% 90%,
           rgba(217, 47, 135, 0.14),
-          transparent 36%
+          transparent 34%
         ),
-        linear-gradient(
-          145deg,
-          #fbfdff 0%,
-          #f8fbfd 52%,
-          #fffafd 100%
-        );
+        #f8fbfd;
       font-family:
         Arial,
         "Rubik",
@@ -80,10 +68,6 @@
       font: inherit;
     }
 
-    button {
-      -webkit-tap-highlight-color: transparent;
-    }
-
     [hidden] {
       display: none !important;
     }
@@ -91,13 +75,11 @@
     .page {
       display: flex;
       flex-direction: column;
-      width: 100%;
       min-height: 100vh;
       min-height: 100dvh;
     }
 
     .rainbow-line {
-      width: 100%;
       height: 6px;
       background:
         linear-gradient(
@@ -110,69 +92,56 @@
         );
     }
 
-    /* אזור הלוגואים */
+    /* לוגואים */
 
     .header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100px;
-      padding: 14px 20px;
-      background: rgba(255, 255, 255, 0.92);
-      border-bottom: 1px solid rgba(220, 230, 239, 0.9);
+      padding: 15px 20px;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border);
       box-shadow:
-        0 4px 20px rgba(32, 54, 79, 0.04);
-      backdrop-filter: blur(12px);
+        0 5px 22px rgba(32, 54, 79, 0.05);
     }
 
     .logos {
-      display: grid;
-      grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1.25fr);
-      align-items: center;
-      gap: 28px;
-      width: 100%;
-      max-width: 780px;
-    }
-
-    .logo-box {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-width: 0;
-      height: 72px;
+      gap: 34px;
+      width: min(900px, 100%);
+      margin: 0 auto;
     }
 
-    .clinic-logo-box {
+    .clinic-window {
+      position: relative;
+      width: min(380px, 45%);
+      height: 78px;
       overflow: hidden;
     }
 
     .clinic-logo {
-      display: block;
+      position: absolute;
+      top: 50%;
+      right: 0;
       width: 100%;
-      height: 72px;
-      object-fit: contain;
-      transform: scale(2.35);
-      transform-origin: center;
+      height: auto;
+      transform: translateY(-50%);
     }
 
     .meir-logo {
       display: block;
-      width: 100%;
-      max-width: 390px;
-      max-height: 72px;
+      width: min(410px, 49%);
+      max-height: 78px;
       object-fit: contain;
     }
 
     .logo-divider {
-      position: absolute;
       width: 1px;
-      height: 52px;
+      height: 54px;
+      flex: 0 0 auto;
       background: var(--border);
     }
 
-    /* תוכן הדף */
+    /* תוכן */
 
     .main {
       display: flex;
@@ -182,73 +151,71 @@
       width: 100%;
       padding:
         34px
-        18px
-        max(34px, env(safe-area-inset-bottom));
+        16px
+        max(38px, env(safe-area-inset-bottom));
     }
 
-    .question-panel {
+    .content {
       width: 100%;
       max-width: 650px;
     }
 
-    .conference-details {
-      margin-bottom: 30px;
+    .intro {
+      margin-bottom: 28px;
       text-align: center;
     }
 
     .conference-label {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 34px;
+      display: inline-block;
+      max-width: 100%;
       margin-bottom: 15px;
-      padding: 7px 15px;
+      padding: 9px 17px;
       color: var(--pink);
       background: var(--pink-light);
-      border: 1px solid rgba(217, 47, 135, 0.12);
+      border: 1px solid rgba(217, 47, 135, 0.15);
       border-radius: 999px;
-      font-size: 13px;
-      font-weight: 900;
+      font-size: 14px;
+      font-weight: 800;
       line-height: 1.35;
     }
 
-    .conference-details h1 {
+    .intro h1 {
       margin: 0;
       color: var(--pink);
-      font-size: clamp(37px, 10vw, 60px);
+      font-size: clamp(42px, 10vw, 62px);
       font-weight: 900;
       line-height: 1.05;
       letter-spacing: -0.035em;
     }
 
-    .conference-details p {
+    .intro p {
       max-width: 570px;
-      margin: 16px auto 0;
-      color: var(--navy-soft);
-      font-size: clamp(17px, 4.6vw, 21px);
+      margin: 17px auto 0;
+      color: var(--gray);
+      font-size: clamp(18px, 4.6vw, 21px);
       line-height: 1.55;
     }
 
-    /* כרטיס השאלה */
+    /* כרטיס */
 
-    .question-card {
+    .card {
       position: relative;
-      padding: clamp(24px, 6vw, 38px);
+      width: 100%;
+      padding: clamp(25px, 6vw, 40px);
       overflow: hidden;
-      background: rgba(255, 255, 255, 0.96);
-      border: 1px solid rgba(220, 230, 239, 0.95);
-      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid var(--border);
+      border-radius: 30px;
       box-shadow:
-        0 25px 70px rgba(32, 54, 79, 0.11),
-        0 8px 25px rgba(217, 47, 135, 0.05);
+        0 24px 65px rgba(32, 54, 79, 0.11);
     }
 
-    .question-card::before {
+    .card::before {
       position: absolute;
       top: 0;
       right: 0;
       width: 100%;
-      height: 5px;
+      height: 6px;
       content: "";
       background:
         linear-gradient(
@@ -260,84 +227,92 @@
     }
 
     .form-heading {
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     .form-heading h2 {
-2 {
-      margin: 0 0 10px;
+      margin: 0 0 11px;
       color: var(--navy);
-      font-size: clamp(25px, 6.8vw, 34px);
+      font-size: clamp(27px, 7vw, 36px);
       font-weight: 900;
-      line-height: 1.2;
+      line-height: 1.25;
     }
 
     .form-heading p {
       margin: 0;
-      color: var(--navy-soft);
-      font-size: 16px;
+      color: var(--gray);
+      font-size: 17px;
       line-height: 1.55;
     }
+
+    /* תיבת כתיבה */
 
     .textarea-wrapper {
       position: relative;
+      width: 100%;
     }
 
-    textarea {
+    #questionInput {
       display: block;
       width: 100%;
-      min-height: 175px;
-      padding: 18px 18px 42px;
+      min-width: 100%;
+      max-width: 100%;
+      min-height: 190px;
+      margin: 0;
+      padding: 19px 18px 44px;
       resize: vertical;
       color: var(--navy);
-      background: #fbfcfe;
+      background: #fbfdff;
       border: 2px solid var(--border);
-      border-radius: 19px;
+      border-radius: 20px;
       outline: none;
       font-size: 18px;
       line-height: 1.55;
+      appearance: none;
+      -webkit-appearance: none;
       transition:
-        border-color 170ms ease,
-        box-shadow 170ms ease,
-        background-color 170ms ease;
+        border-color 160ms ease,
+        box-shadow 160ms ease,
+        background-color 160ms ease;
     }
 
-    textarea::placeholder {
-      color: #9ba8b5;
+    #questionInput::placeholder {
+      color: #98a6b4;
     }
 
-    textarea:focus {
+    #questionInput:focus {
       background: var(--white);
       border-color: var(--blue);
       box-shadow:
-        0 0 0 5px rgba(57, 172, 210, 0.11);
+        0 0 0 5px rgba(57, 172, 210, 0.12);
     }
 
-    textarea.has-error {
+    #questionInput.has-error {
       border-color: var(--error);
       box-shadow:
         0 0 0 5px rgba(198, 41, 95, 0.09);
     }
 
-    .character-counter {
+    .counter {
       position: absolute;
-      bottom: 13px;
+      bottom: 14px;
       left: 16px;
       direction: ltr;
-      color: #93a2b1;
+      color: #8e9dab;
       font-size: 13px;
       font-weight: 700;
+      pointer-events: none;
     }
 
-    .validation-message {
-      min-height: 20px;
+    .validation {
+      min-height: 21px;
       margin: 8px 3px 0;
       color: var(--error);
       font-size: 13px;
       font-weight: 700;
     }
 
-    /* כפתור השליחה */
+    /* כפתור */
 
     .submit-button {
       display: flex;
@@ -345,8 +320,8 @@
       justify-content: center;
       gap: 11px;
       width: 100%;
-      min-height: 58px;
-      margin-top: 18px;
+      min-height: 59px;
+      margin: 15px 0 0;
       padding: 0 24px;
       cursor: pointer;
       color: var(--white);
@@ -357,30 +332,29 @@
           var(--blue-dark)
         );
       border: 0;
-      border-radius: 17px;
+      border-radius: 18px;
       box-shadow:
-        0 12px 24px rgba(57, 172, 210, 0.28),
-        0 5px 0 #137ea5;
-      font-size: 19px;
+        0 13px 25px rgba(57, 172, 210, 0.27),
+        0 5px 0 #137da4;
+      font-size: 20px;
       font-weight: 900;
+      appearance: none;
+      -webkit-appearance: none;
       transition:
-        transform 150ms ease,
-        box-shadow 150ms ease,
-        opacity 150ms ease;
+        transform 140ms ease,
+        box-shadow 140ms ease,
+        opacity 140ms ease;
     }
 
     .submit-button:hover {
       transform: translateY(-2px);
-      box-shadow:
-        0 15px 30px rgba(57, 172, 210, 0.33),
-        0 6px 0 #137ea5;
     }
 
     .submit-button:active {
       transform: translateY(4px);
       box-shadow:
-        0 5px 13px rgba(57, 172, 210, 0.24),
-        0 1px 0 #137ea5;
+        0 5px 12px rgba(57, 172, 210, 0.23),
+        0 1px 0 #137da4;
     }
 
     .submit-button:disabled {
@@ -393,28 +367,26 @@
       font-size: 22px;
     }
 
-    .privacy-note {
+    .anonymous-note {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
-      gap: 8px;
-      margin: 18px 0 0;
-      color: #8494a4;
-      font-size: 13px;
-      line-height: 1.45;
+      gap: 7px;
+      margin: 19px 0 0;
+      color: #8393a3;
+      font-size: 14px;
       text-align: center;
     }
 
-    .privacy-icon {
+    .anonymous-note strong {
       color: var(--green);
-      font-size: 16px;
-      font-weight: 900;
+      font-size: 17px;
     }
 
-    /* הודעת הצלחה */
+    /* הצלחה */
 
-    .success-state {
-      padding: 12px 0 4px;
+    .success {
+      padding: 10px 0 3px;
       text-align: center;
     }
 
@@ -438,28 +410,26 @@
       font-weight: 900;
     }
 
-    .success-state h2 {
+    .success h2 {
       margin: 0 0 10px;
-      color: var(--navy);
       font-size: 32px;
-      font-weight: 900;
     }
 
-    .success-state p {
+    .success p {
       margin: 0;
-      color: var(--navy-soft);
+      color: var(--gray);
       font-size: 17px;
       line-height: 1.55;
     }
 
-    .another-question-button {
+    .again-button {
       width: 100%;
       min-height: 54px;
-      margin-top: 27px;
+      margin-top: 26px;
       cursor: pointer;
       color: var(--pink);
       background: var(--pink-light);
-      border: 1px solid rgba(217, 47, 135, 0.18);
+      border: 1px solid rgba(217, 47, 135, 0.19);
       border-radius: 16px;
       font-size: 17px;
       font-weight: 900;
@@ -467,7 +437,7 @@
 
     .footer {
       padding: 8px 20px 22px;
-      color: #8c9aaa;
+      color: #8796a5;
       font-size: 12px;
       font-weight: 700;
       text-align: center;
@@ -483,10 +453,10 @@
     .spinner {
       width: 21px;
       height: 21px;
-      border: 3px solid rgba(255, 255, 255, 0.38);
+      border: 3px solid rgba(255, 255, 255, 0.4);
       border-top-color: var(--white);
       border-radius: 50%;
-      animation: spin 750ms linear infinite;
+      animation: spin 700ms linear infinite;
     }
 
     @keyframes spin {
@@ -495,90 +465,64 @@
       }
     }
 
-    /* התאמה למובייל */
+    /* מובייל */
 
     @media (max-width: 600px) {
       .header {
-        min-height: 86px;
-        padding: 10px 13px;
+        padding: 11px 16px 14px;
       }
 
       .logos {
-        grid-template-columns:
-          minmax(0, 0.92fr)
-          minmax(0, 1.2fr);
-        gap: 18px;
+        flex-direction: column;
+        gap: 4px;
       }
 
-      .logo-box {
-        height: 62px;
-      }
-
-      .clinic-logo {
-        height: 62px;
-        transform: scale(2.3);
+      .clinic-window {
+        order: 2;
+        width: min(350px, 100%);
+        height: 73px;
       }
 
       .meir-logo {
-        max-height: 59px;
+        order: 1;
+        width: min(350px, 100%);
+        max-height: 72px;
       }
 
       .logo-divider {
-        height: 42px;
+        display: none;
       }
 
       .main {
-        padding-top: 28px;
+        align-items: flex-start;
+        padding-top: 30px;
       }
 
-      .conference-label {
-        max-width: 330px;
+      .intro {
+        margin-bottom: 24px;
+      }
+
+      .card {
+        border-radius: 26px;
+      }
+
+      #questionInput {
+        min-height: 180px;
       }
     }
 
     @media (max-width: 380px) {
-      .header {
-        min-height: 76px;
-      }
-
-      .logos {
-        gap: 12px;
-      }
-
-      .logo-box {
-        height: 52px;
-      }
-
-      .clinic-logo {
-        height: 52px;
-      }
-
-      .meir-logo {
-        max-height: 50px;
-      }
-
       .main {
-        padding-right: 12px;
-        padding-left: 12px;
+        padding-right: 11px;
+        padding-left: 11px;
       }
 
-      .question-card {
-        padding: 22px 18px;
-        border-radius: 23px;
+      .card {
+        padding: 24px 18px;
       }
 
-      textarea {
-        min-height: 160px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+      .conference-label {
+        font-size: 13px;
       }
     }
   </style>
@@ -592,7 +536,7 @@
     <header class="header">
       <div class="logos">
 
-        <div class="logo-box clinic-logo-box">
+        <div class="clinic-window">
           <img
             class="clinic-logo"
             src="clinic-logo.png"
@@ -602,29 +546,25 @@
 
         <div class="logo-divider"></div>
 
-        <div class="logo-box">
-          <img
-            class="meir-logo"
-            src="meir-logo.png"
-            alt="מרכז רפואי מאיר"
-          >
-        </div>
+        <img
+          class="meir-logo"
+          src="meir-logo.png"
+          alt="מרכז רפואי מאיר"
+        >
 
       </div>
     </header>
 
     <main class="main">
-      <section class="question-panel">
+      <section class="content">
 
-        <div class="conference-details">
+        <div class="intro">
 
           <div class="conference-label">
             כנס רפואת הלהט"ב השנתי של מרכז רפואי מאיר
           </div>
 
-          <h1>
-            מטפלים בגאווה
-          </h1>
+          <h1>מטפלים בגאווה</h1>
 
           <p>
             נשמח לשמוע מחשבות, רגשות ושאלות למומחי
@@ -633,15 +573,13 @@
 
         </div>
 
-        <div class="question-card">
+        <div class="card">
 
           <div id="formState">
 
             <div class="form-heading">
 
-              <h2>
-                מה הייתם רוצים לשאול?
-              </h2>
+              <h2>מה הייתם רוצים לשאול?</h2>
 
               <p>
                 אפשר לבקש מענה ממומחה או מומחית מסוימים,
@@ -671,7 +609,7 @@
 
                 <div
                   id="characterCounter"
-                  class="character-counter"
+                  class="counter"
                 >
                   0/280
                 </div>
@@ -680,7 +618,7 @@
 
               <div
                 id="validationMessage"
-                class="validation-message"
+                class="validation"
                 aria-live="polite"
               ></div>
 
@@ -701,9 +639,7 @@
                 class="submit-button"
                 type="submit"
               >
-                <span id="buttonText">
-                  שליחה
-                </span>
+                <span id="buttonText">שליחה</span>
 
                 <span
                   id="buttonArrow"
@@ -721,28 +657,22 @@
 
             </form>
 
-            <p class="privacy-note">
-              <span class="privacy-icon">✓</span>
-
-              <span>
-                התוכן נשלח באופן אנונימי.
-              </span>
+            <p class="anonymous-note">
+              <strong>✓</strong>
+              <span>התוכן נשלח באופן אנונימי.</span>
             </p>
 
           </div>
 
           <div
             id="successState"
-            class="success-state"
+            class="success"
             hidden
           >
-            <div class="success-icon">
-              ✓
-            </div>
 
-            <h2>
-              התוכן התקבל
-            </h2>
+            <div class="success-icon">✓</div>
+
+            <h2>התוכן התקבל</h2>
 
             <p>
               תודה על ההשתתפות.<br>
@@ -751,11 +681,12 @@
 
             <button
               id="anotherQuestionButton"
-              class="another-question-button"
+              class="again-button"
               type="button"
             >
               שליחה נוספת
             </button>
+
           </div>
 
         </div>
@@ -776,16 +707,16 @@
   ></iframe>
 
   <script>
-    const questionForm =
+    const form =
       document.getElementById('questionForm');
 
-    const questionInput =
+    const input =
       document.getElementById('questionInput');
 
-    const characterCounter =
+    const counter =
       document.getElementById('characterCounter');
 
-    const validationMessage =
+    const validation =
       document.getElementById('validationMessage');
 
     const submitButton =
@@ -797,10 +728,10 @@
     const buttonArrow =
       document.getElementById('buttonArrow');
 
-    const buttonSpinner =
+    const spinner =
       document.getElementById('buttonSpinner');
 
-    const submissionFrame =
+    const frame =
       document.getElementById('submissionFrame');
 
     const formState =
@@ -809,53 +740,45 @@
     const successState =
       document.getElementById('successState');
 
-    const anotherQuestionButton =
+    const againButton =
       document.getElementById(
         'anotherQuestionButton'
       );
 
     let submissionStarted = false;
 
-    questionInput.addEventListener(
+    input.addEventListener(
       'input',
       function () {
-        characterCounter.textContent =
-          questionInput.value.length + '/280';
+        counter.textContent =
+          input.value.length + '/280';
 
-        questionInput.classList.remove(
-          'has-error'
-        );
-
-        validationMessage.textContent = '';
+        input.classList.remove('has-error');
+        validation.textContent = '';
       }
     );
 
-    questionForm.addEventListener(
+    form.addEventListener(
       'submit',
       function (event) {
-        const content =
-          questionInput.value.trim();
-
-        if (content.length < 2) {
+        if (input.value.trim().length < 2) {
           event.preventDefault();
 
-          questionInput.classList.add(
-            'has-error'
-          );
+          input.classList.add('has-error');
 
-          validationMessage.textContent =
+          validation.textContent =
             'יש לכתוב משהו לפני השליחה.';
 
-          questionInput.focus();
+          input.focus();
           return;
         }
 
         submissionStarted = true;
-        setSubmittingState(true);
+        setSubmitting(true);
       }
     );
 
-    submissionFrame.addEventListener(
+    frame.addEventListener(
       'load',
       function () {
         if (!submissionStarted) {
@@ -863,59 +786,47 @@
         }
 
         submissionStarted = false;
-        setSubmittingState(false);
-        showSuccessState();
+        setSubmitting(false);
+
+        formState.hidden = true;
+        successState.hidden = false;
+
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
       }
     );
 
-    anotherQuestionButton.addEventListener(
+    againButton.addEventListener(
       'click',
       function () {
-        questionForm.reset();
+        form.reset();
 
-        characterCounter.textContent =
-          '0/280';
-
-        validationMessage.textContent = '';
-
-        questionInput.classList.remove(
-          'has-error'
-        );
+        counter.textContent = '0/280';
+        validation.textContent = '';
+        input.classList.remove('has-error');
 
         successState.hidden = true;
         formState.hidden = false;
 
         window.setTimeout(
           function () {
-            questionInput.focus();
+            input.focus();
           },
           100
         );
       }
     );
 
-    function setSubmittingState(
-      isSubmitting
-    ) {
+    function setSubmitting(isSubmitting) {
       submitButton.disabled = isSubmitting;
 
       buttonText.textContent =
-        isSubmitting
-          ? 'שולח...'
-          : 'שליחה';
+        isSubmitting ? 'שולח...' : 'שליחה';
 
       buttonArrow.hidden = isSubmitting;
-      buttonSpinner.hidden = !isSubmitting;
-    }
-
-    function showSuccessState() {
-      formState.hidden = true;
-      successState.hidden = false;
-
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      spinner.hidden = !isSubmitting;
     }
   </script>
 </body>
