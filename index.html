@@ -8,23 +8,20 @@
     content="width=device-width, initial-scale=1.0, viewport-fit=cover"
   >
 
-  <meta
-    name="theme-color"
-    content="#f8fbfd"
-  >
+  <meta name="theme-color" content="#f8fbfd">
 
-  <title>שליחת שאלה | כנס רפואה להט״ב 2026</title>
+  <title>
+    שליחת שאלה | כנס רפואת הלהט"ב
+  </title>
 
   <style>
     :root {
       --navy: #20364f;
       --navy-soft: #687d92;
       --pink: #d92f87;
-      --pink-dark: #bd216f;
       --pink-light: #fff0f7;
       --blue: #39acd2;
       --blue-dark: #198db8;
-      --blue-light: #eaf8fc;
       --purple: #8674d5;
       --green: #4eb89a;
       --yellow: #f4cb5e;
@@ -92,7 +89,6 @@
     }
 
     .page {
-      position: relative;
       display: flex;
       flex-direction: column;
       width: 100%;
@@ -114,23 +110,69 @@
         );
     }
 
+    /* אזור הלוגואים */
+
     .header {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 76px;
-      padding: 16px 20px;
-      background: rgba(255, 255, 255, 0.82);
+      min-height: 100px;
+      padding: 14px 20px;
+      background: rgba(255, 255, 255, 0.92);
       border-bottom: 1px solid rgba(220, 230, 239, 0.9);
+      box-shadow:
+        0 4px 20px rgba(32, 54, 79, 0.04);
       backdrop-filter: blur(12px);
     }
 
-    .header-brand {
-      color: var(--navy);
-      font-size: 15px;
-      font-weight: 800;
-      text-align: center;
+    .logos {
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1.25fr);
+      align-items: center;
+      gap: 28px;
+      width: 100%;
+      max-width: 780px;
     }
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      height: 72px;
+    }
+
+    .clinic-logo-box {
+      overflow: hidden;
+    }
+
+    .clinic-logo {
+      display: block;
+      width: 100%;
+      height: 72px;
+      object-fit: contain;
+      transform: scale(2.35);
+      transform-origin: center;
+    }
+
+    .meir-logo {
+      display: block;
+      width: 100%;
+      max-width: 390px;
+      max-height: 72px;
+      object-fit: contain;
+    }
+
+    .logo-divider {
+      position: absolute;
+      width: 1px;
+      height: 52px;
+      background: var(--border);
+    }
+
+    /* תוכן הדף */
 
     .main {
       display: flex;
@@ -157,15 +199,17 @@
     .conference-label {
       display: inline-flex;
       align-items: center;
-      min-height: 32px;
-      margin-bottom: 14px;
-      padding: 0 14px;
+      justify-content: center;
+      min-height: 34px;
+      margin-bottom: 15px;
+      padding: 7px 15px;
       color: var(--pink);
       background: var(--pink-light);
       border: 1px solid rgba(217, 47, 135, 0.12);
       border-radius: 999px;
       font-size: 13px;
       font-weight: 900;
+      line-height: 1.35;
     }
 
     .conference-details h1 {
@@ -178,12 +222,14 @@
     }
 
     .conference-details p {
-      max-width: 520px;
+      max-width: 570px;
       margin: 16px auto 0;
       color: var(--navy-soft);
       font-size: clamp(17px, 4.6vw, 21px);
       line-height: 1.55;
     }
+
+    /* כרטיס השאלה */
 
     .question-card {
       position: relative;
@@ -218,7 +264,8 @@
     }
 
     .form-heading h2 {
-      margin: 0 0 8px;
+2 {
+      margin: 0 0 10px;
       color: var(--navy);
       font-size: clamp(25px, 6.8vw, 34px);
       font-weight: 900;
@@ -229,15 +276,7 @@
       margin: 0;
       color: var(--navy-soft);
       font-size: 16px;
-      line-height: 1.5;
-    }
-
-    .field-label {
-      display: block;
-      margin-bottom: 10px;
-      color: var(--navy);
-      font-size: 16px;
-      font-weight: 800;
+      line-height: 1.55;
     }
 
     .textarea-wrapper {
@@ -297,6 +336,8 @@
       font-size: 13px;
       font-weight: 700;
     }
+
+    /* כפתור השליחה */
 
     .submit-button {
       display: flex;
@@ -370,6 +411,8 @@
       font-weight: 900;
     }
 
+    /* הודעת הצלחה */
+
     .success-state {
       padding: 12px 0 4px;
       text-align: center;
@@ -422,10 +465,6 @@
       font-weight: 900;
     }
 
-    .another-question-button:hover {
-      background: #ffe4f1;
-    }
-
     .footer {
       padding: 8px 20px 22px;
       color: #8c9aaa;
@@ -456,20 +495,66 @@
       }
     }
 
-    @media (min-width: 720px) {
-      .main {
-        padding-top: 54px;
-        padding-bottom: 54px;
+    /* התאמה למובייל */
+
+    @media (max-width: 600px) {
+      .header {
+        min-height: 86px;
+        padding: 10px 13px;
       }
 
-      .question-card {
-        border-radius: 32px;
+      .logos {
+        grid-template-columns:
+          minmax(0, 0.92fr)
+          minmax(0, 1.2fr);
+        gap: 18px;
+      }
+
+      .logo-box {
+        height: 62px;
+      }
+
+      .clinic-logo {
+        height: 62px;
+        transform: scale(2.3);
+      }
+
+      .meir-logo {
+        max-height: 59px;
+      }
+
+      .logo-divider {
+        height: 42px;
+      }
+
+      .main {
+        padding-top: 28px;
+      }
+
+      .conference-label {
+        max-width: 330px;
       }
     }
 
     @media (max-width: 380px) {
       .header {
-        min-height: 64px;
+        min-height: 76px;
+      }
+
+      .logos {
+        gap: 12px;
+      }
+
+      .logo-box {
+        height: 52px;
+      }
+
+      .clinic-logo {
+        height: 52px;
+      }
+
+      .meir-logo {
+        max-height: 50px;
       }
 
       .main {
@@ -505,8 +590,26 @@
     <div class="rainbow-line"></div>
 
     <header class="header">
-      <div class="header-brand">
-        מרכז רפואי מאיר
+      <div class="logos">
+
+        <div class="logo-box clinic-logo-box">
+          <img
+            class="clinic-logo"
+            src="clinic-logo.png"
+            alt="מרפאה גינקולוגית להט״בית, מרכז רפואי מאיר"
+          >
+        </div>
+
+        <div class="logo-divider"></div>
+
+        <div class="logo-box">
+          <img
+            class="meir-logo"
+            src="meir-logo.png"
+            alt="מרכז רפואי מאיר"
+          >
+        </div>
+
       </div>
     </header>
 
@@ -514,8 +617,9 @@
       <section class="question-panel">
 
         <div class="conference-details">
+
           <div class="conference-label">
-            כנס רפואה להט״ב 2026
+            כנס רפואת הלהט"ב השנתי של מרכז רפואי מאיר
           </div>
 
           <h1>
@@ -523,9 +627,10 @@
           </h1>
 
           <p>
-            יש לכם שאלה למומחי ולמומחיות הפאנל?
-            כתבו אותה כאן והיא תועבר ישירות למציגים.
+            נשמח לשמוע מחשבות, רגשות ושאלות למומחי
+            ומומחיות הפאנל המקצועי שלנו.
           </p>
+
         </div>
 
         <div class="question-card">
@@ -533,11 +638,16 @@
           <div id="formState">
 
             <div class="form-heading">
-              <h2>מה הייתם רוצים לשאול?</h2>
+
+              <h2>
+                מה הייתם רוצים לשאול?
+              </h2>
 
               <p>
-                אפשר גם לבקש מענה ממומחה או מומחית מסוימים.
+                אפשר לבקש מענה ממומחה או מומחית מסוימים,
+                ואפשר גם פשוט לשתף אותנו בתחושות ומחשבות.
               </p>
+
             </div>
 
             <form
@@ -548,13 +658,6 @@
               novalidate
             >
 
-              <label
-                class="field-label"
-                for="questionInput"
-              >
-                השאלה שלכם
-              </label>
-
               <div class="textarea-wrapper">
 
                 <textarea
@@ -562,6 +665,7 @@
                   name="entry.1129181968"
                   maxlength="280"
                   placeholder="אפשר לכתוב כאן..."
+                  aria-label="כתיבת שאלה, מחשבה או תחושה"
                   required
                 ></textarea>
 
@@ -598,7 +702,7 @@
                 type="submit"
               >
                 <span id="buttonText">
-                  שליחת השאלה
+                  שליחה
                 </span>
 
                 <span
@@ -621,12 +725,11 @@
               <span class="privacy-icon">✓</span>
 
               <span>
-                השאלה נשלחת באופן אנונימי.
+                התוכן נשלח באופן אנונימי.
               </span>
             </p>
 
           </div>
-
 
           <div
             id="successState"
@@ -638,12 +741,12 @@
             </div>
 
             <h2>
-              השאלה התקבלה
+              התוכן התקבל
             </h2>
 
             <p>
               תודה על ההשתתפות.<br>
-              השאלה הועברה למסך הכנס.
+              התוכן הועבר למסך הכנס.
             </p>
 
             <button
@@ -651,12 +754,11 @@
               class="another-question-button"
               type="button"
             >
-              שליחת שאלה נוספת
+              שליחה נוספת
             </button>
           </div>
 
         </div>
-
       </section>
     </main>
 
@@ -666,14 +768,12 @@
 
   </div>
 
-
   <iframe
     id="submissionFrame"
     class="hidden-frame"
     name="submissionFrame"
-    title="שליחת השאלה"
+    title="שליחת התוכן"
   ></iframe>
-
 
   <script>
     const questionForm =
@@ -716,7 +816,6 @@
 
     let submissionStarted = false;
 
-
     questionInput.addEventListener(
       'input',
       function () {
@@ -731,14 +830,13 @@
       }
     );
 
-
     questionForm.addEventListener(
       'submit',
       function (event) {
-        const question =
+        const content =
           questionInput.value.trim();
 
-        if (question.length < 2) {
+        if (content.length < 2) {
           event.preventDefault();
 
           questionInput.classList.add(
@@ -746,7 +844,7 @@
           );
 
           validationMessage.textContent =
-            'יש לכתוב שאלה לפני השליחה.';
+            'יש לכתוב משהו לפני השליחה.';
 
           questionInput.focus();
           return;
@@ -756,7 +854,6 @@
         setSubmittingState(true);
       }
     );
-
 
     submissionFrame.addEventListener(
       'load',
@@ -770,7 +867,6 @@
         showSuccessState();
       }
     );
-
 
     anotherQuestionButton.addEventListener(
       'click',
@@ -798,19 +894,19 @@
       }
     );
 
-
-    function setSubmittingState(isSubmitting) {
+    function setSubmittingState(
+      isSubmitting
+    ) {
       submitButton.disabled = isSubmitting;
 
       buttonText.textContent =
         isSubmitting
-          ? 'השאלה נשלחת...'
-          : 'שליחת השאלה';
+          ? 'שולח...'
+          : 'שליחה';
 
       buttonArrow.hidden = isSubmitting;
       buttonSpinner.hidden = !isSubmitting;
     }
-
 
     function showSuccessState() {
       formState.hidden = true;
